@@ -32,7 +32,6 @@ if [ ! -f ${cache_target} ]; then
   #Compile libevent
   curl -s ${libe_url} > ${libe_file}
   echo "abc"
-  ls
   tar zxf ${libe_file}
   cd ${libe_dir}
   ./configure --prefix=${target} | indent
