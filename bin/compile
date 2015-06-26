@@ -18,8 +18,6 @@ libe_version="2.0.21"
 libe_dir="libevent-${libe_version}-stable"
 libe_file="${libe_dir}.tar.gz"
 libe_url="http://github.com/downloads/libevent/libevent/${libe_file}"
-echo $libe_url
-echo "Starting"
 cache_target=${cache}/${tmate_file}
 build_target=${build}
 target=/app/.local
