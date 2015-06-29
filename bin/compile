@@ -22,6 +22,8 @@ cache_target=${cache}/${tmate_file}
 build_target=${build}
 target=/app/.local
 
+bp_dir=$(cd $(dirname $0); cd ..; pwd)
+
 if [ ! -f ${cache_target} ]; then
   echo "=====> No cached compile detected. Bulding..."
   cd $build
@@ -42,9 +44,14 @@ if [ ! -f ${cache_target} ]; then
   curl -s https://s3.amazonaws.com/tmate-buildpack-assets/tmate > ${target}/bin/tmate
   chmod +x ${target}/bin/tmate
 
-  # download unbuffer
-  echo "-----> Downloading launcher..."
-  curl -s https://s3.amazonaws.com/tmate-buildpack-assets/launch > ${target}/bin/launch
+  # # download unbuffer
+  # echo "-----> Downloading launcher..."
+  # curl -s https://s3.amazonaws.com/tmate-buildpack-assets/launch > ${target}/bin/launch
+  # chmod +x ${target}/bin/launch
+
+  # setup launcher
+  echo "-----> Setup the launcher..."
+  mv $bp_dir/bin/launch ${target}/bin/
   chmod +x ${target}/bin/launch
 
   #Create cache slug
