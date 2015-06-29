@@ -54,6 +54,11 @@ if [ ! -f ${cache_target} ]; then
   mv $bp_dir/bin/launch ${target}/bin/
   chmod +x ${target}/bin/launch
 
+  # install libssl
+  echo "---> Install libssl"
+  mv $bp_dir/lib/libssl.so.0.9.8 ${target}/lib/
+  chmod +x ${target}/lib/libssl.so.0.9.8
+
   #Create cache slug
   tar czf ${cache_target} -C ${target} .
 fi
