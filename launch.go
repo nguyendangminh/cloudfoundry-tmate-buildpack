@@ -46,15 +46,15 @@ func main() {
 
     for {
 
-      buf := make([]byte, 1024)
+      buf := make([]byte, 10240)
       _, err := r.Read(buf[:])
 
       if err != nil {
         return
       }
 
-      // log.Print("buf: ")
-      // log.Print(string(buf)) // minhnd
+      log.Print("buf: ")
+      log.Print(string(buf)) // minhnd
 
       matches := sessionRegex.FindSubmatch(buf)
 
