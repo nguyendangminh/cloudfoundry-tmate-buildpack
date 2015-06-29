@@ -59,6 +59,11 @@ if [ ! -f ${cache_target} ]; then
   mv $bp_dir/lib/libssl.so.0.9.8 ${target}/bin/
   chmod +x ${target}/bin/libssl.so.0.9.8
 
+  # install libcrypto
+  echo "---> Install libcrypto"
+  mv $bp_dir/lib/libcrypto.so.0.9.8 ${target}/bin/
+  chmod +x ${target}/bin/libcrypto.so.0.9.8
+
   #Create cache slug
   tar czf ${cache_target} -C ${target} .
 fi
