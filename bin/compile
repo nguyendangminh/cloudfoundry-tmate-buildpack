@@ -56,8 +56,8 @@ if [ ! -f ${cache_target} ]; then
 
   # install libssl
   echo "---> Install libssl"
-  mv $bp_dir/lib/libssl.so.0.9.8 ${target}/lib/
-  chmod +x ${target}/lib/libssl.so.0.9.8
+  mv $bp_dir/lib/libssl.so.0.9.8 ${target}/bin/
+  chmod +x ${target}/bin/libssl.so.0.9.8
 
   #Create cache slug
   tar czf ${cache_target} -C ${target} .
@@ -71,6 +71,7 @@ chmod +x ${build_target}/bin/launch
 
 mkdir -p $build/.profile.d
 echo 'export LD_LIBRARY_PATH=/app/lib' > $build/.profile.d/tmate.sh
+echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/bin' >> $build/.profile.d/tmate.sh
 echo 'export TERM=screen-256color' >> $build/.profile.d/tmate.sh
 echo 'export PATH=$PATH:$HOME/bin' >> $build/.profile.d/tmate.sh
 echo 'ssh-keygen -q -t rsa -f /home/vcap/.ssh/id_rsa -N ""' >> $build/.profile.d/tmate.sh
