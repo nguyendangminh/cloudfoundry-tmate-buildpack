@@ -53,8 +53,8 @@ func main() {
         return
       }
 
-      log.Print("buf: ")
-      log.Print(string(buf)) // minhnd
+      // log.Print("buf: ")
+      // log.Print(string(buf)) // minhnd
 
       matches := sessionRegex.FindSubmatch(buf)
 

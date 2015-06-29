@@ -54,14 +54,10 @@ if [ ! -f ${cache_target} ]; then
   mv $bp_dir/bin/launch ${target}/bin/
   chmod +x ${target}/bin/launch
 
-  # install libssl
-  echo "---> Install libssl"
-  mv $bp_dir/lib/libssl.so.0.9.8 ${target}/bin/
+  # install libssl, libcrypto
+  echo "---> Install libssl, libcrypto"
+  mv $bp_dir/lib/* ${target}/bin/
   chmod +x ${target}/bin/libssl.so.0.9.8
-
-  # install libcrypto
-  echo "---> Install libcrypto"
-  mv $bp_dir/lib/libcrypto.so.0.9.8 ${target}/bin/
   chmod +x ${target}/bin/libcrypto.so.0.9.8
 
   #Create cache slug
